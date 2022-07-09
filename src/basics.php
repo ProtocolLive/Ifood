@@ -1,5 +1,5 @@
 <?php
-//2022.07.09.02
+//2022.07.09.03
 
 abstract class IfoodBasics{
   protected const Url = 'https://merchant-api.ifood.com.br/';
@@ -23,6 +23,9 @@ abstract class IfoodBasics{
     $this->Log('Retorno: ' . $code . PHP_EOL . $return . PHP_EOL);
     if($code === 200):
       return json_decode($return, true);
+    endif;
+    if($code === 202):
+      return true;
     endif;
     if($code === 204):
       return [];
