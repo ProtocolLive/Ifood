@@ -1,5 +1,5 @@
 <?php
-//2022.07.09.04
+//2022.07.09.05
 
 require(__DIR__ . '/requires.php');
 
@@ -12,7 +12,7 @@ class Ifood extends IfoodBasics{
     private string|null $Chave = null,
     string $Token = null,
     int $TokenValidade = null,
-    bool $Log = false,
+    string $Log = null,
     string $CurlCert = null
   ){
     if($Token !== null):

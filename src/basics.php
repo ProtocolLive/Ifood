@@ -1,11 +1,11 @@
 <?php
-//2022.07.09.04
+//2022.07.09.05
 
 abstract class IfoodBasics{
   protected const Url = 'https://merchant-api.ifood.com.br/';
   protected const Versao = '/v1.0/';
   protected string|null $CurlCert;
-  protected bool $Log;
+  protected string $Log;
   public IfoodErros $Erro;
   public string $ErroStr;
 
@@ -61,8 +61,12 @@ abstract class IfoodBasics{
   }
 
   protected function Log(string $Msg):void{
-    if($this->Log):
-      file_put_contents(__DIR__ . '/ifood.log', $Msg . PHP_EOL, FILE_APPEND);
+    if($this->Log === null):
+      return;
     endif;
+    if(is_dir($this->Log) === false):
+      mkdir($this->Log, 0777, true);
+    endif;
+    file_put_contents($this->Log . '/ifood.log', $Msg . PHP_EOL, FILE_APPEND);
   }
 }
