@@ -1,5 +1,5 @@
 <?php
-//2022.07.09.03
+//2022.07.09.04
 
 require(__DIR__ . '/requires.php');
 
@@ -109,5 +109,25 @@ class Ifood extends IfoodBasics{
     curl_setopt($curl, CURLOPT_POST, false);
     $return = $this->CurlRun($curl);
     return new IfoodPedidoDetalhe($return);
+  }
+
+  public function PedidoConfirma(
+    string $Id
+  ){
+    $url = self::Url . IfoodModulos::Pedidos->value . self::Versao . "orders/$Id/confirm";
+    $curl = $this->CurlFactory($url);
+    curl_setopt($curl, CURLOPT_POST, true);
+    $return = $this->CurlRun($curl);
+    return $return;
+  }
+
+  public function PedidoPreparando(
+    string $Id
+  ){
+    $url = self::Url . IfoodModulos::Pedidos->value . self::Versao . "orders/$Id/startPreparation";
+    $curl = $this->CurlFactory($url);
+    curl_setopt($curl, CURLOPT_POST, true);
+    $return = $this->CurlRun($curl);
+    return $return;
   }
 }
