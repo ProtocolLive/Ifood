@@ -1,0 +1,17 @@
+{
+    "name": "protocollive/ifood",
+    "description": "Biblioteca para se trabalhar coma API do Ifood",
+    "type": "library",
+    "require": {
+        "php": ">=8.1",
+        "ext-openssl": "*",
+        "ext-curl": "*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Protocol Corporation",
+            "email": "protocollive@outlook.com"
+        }
+    ]
+}
