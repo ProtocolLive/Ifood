@@ -1,10 +1,7 @@
 <?php
-//2022.07.09.02
+//2022.07.09.03
 
-require(__DIR__ . '/basics.php');
-require(__DIR__ . '/enum.php');
-require(__DIR__ . '/objetos.php');
-require(__DIR__ . '/objetos/pedido.php');
+require(__DIR__ . '/requires.php');
 
 class Ifood extends IfoodBasics{
   public readonly string|null $Token;
