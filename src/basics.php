@@ -1,5 +1,5 @@
 <?php
-//2022.07.09.01
+//2022.07.09.02
 
 abstract class IfoodBasics{
   protected const Url = 'https://merchant-api.ifood.com.br/';
@@ -27,7 +27,7 @@ abstract class IfoodBasics{
     if($code === 204):
       return [];
     endif;
-
+    return null;
   }
 
   protected function CurlFactory(
