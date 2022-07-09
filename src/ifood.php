@@ -1,5 +1,5 @@
 <?php
-//2022.07.09.01
+//2022.07.09.02
 
 require(__DIR__ . '/basics.php');
 require(__DIR__ . '/enum.php');
@@ -34,18 +34,10 @@ class Ifood extends IfoodBasics{
     $url .= '?' . http_build_query($get);
     $curl = $this->CurlFactory($url, true);
     curl_setopt($curl, CURLOPT_POST, true);
-    $return = curl_exec($curl);
-    if($return === false):
-      $this->Erro = IfoodErros::Curl;
-      $this->ErroStr = curl_error($curl);
-      $this->Log('Erro no cURL: ' . $this->ErroStr . PHP_EOL);
+    $return = $this->CurlRun($curl);
+    if($return === null):
       return false;
     endif;
-    $code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-    if($code !== 200):
-      return false;
-    endif;
-    $return = json_decode($return, true);
     $this->Token = $return['accessToken'];
     $this->TokenValidade = strtotime('+' . $return['expiresIn'] . ' seconds');
     return true;
