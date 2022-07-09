@@ -1,5 +1,5 @@
 <?php
-//2022.07.09.00
+//2022.07.09.01
 
 require(__DIR__ . '/basics.php');
 require(__DIR__ . '/enum.php');
@@ -15,12 +15,14 @@ class Ifood extends IfoodBasics{
     private string|null $Chave = null,
     string $Token = null,
     int $TokenValidade = null,
+    bool $Log = false,
     string $CurlCert = null
   ){
     if($Token !== null):
       $this->Token = $Token;
       $this->TokenValidade = $TokenValidade;
     endif;
+    $this->Log = $Log;
     $this->CurlCert = $CurlCert;
   }
 
