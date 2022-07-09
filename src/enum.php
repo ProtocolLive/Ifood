@@ -1,10 +1,5 @@
 <?php
-//2022.07.09.00
-
-enum IfoodErros:string{
-  case Curl = 'Erro no cUrl';
-  case TokenExpirado = 'Token expirado';
-}
+//2022.07.09.01
 
 enum IfoodModulos:string{
   case Autenticacao = 'authentication';
