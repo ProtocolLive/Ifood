@@ -1,5 +1,5 @@
 <?php
-//2022.07.10.04
+//2022.07.10.05
 
 abstract class IfoodBasics{
   protected const Url = 'https://merchant-api.ifood.com.br/';
@@ -65,6 +65,10 @@ abstract class IfoodBasics{
     endif;
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
+    if($this->Log !== null):
+      curl_setopt($curl, CURLOPT_VERBOSE, true);
+      curl_setopt($curl, CURLOPT_STDERR, fopen($this->Log . '/curl.log', 'w+'));
+    endif;
     return $curl;
   }
 
