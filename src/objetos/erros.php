@@ -1,9 +1,8 @@
 <?php
-//2022.07.09.01
+//2022.07.10.00
 
 enum IfoodErros{
   case Curl;
-  case TokenExpirado;
-  case TokenSem;
+  case Token;
   case Servidor;
 }
