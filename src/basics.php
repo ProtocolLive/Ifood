@@ -1,5 +1,5 @@
 <?php
-//2022.07.09.06
+//2022.07.10.00
 
 abstract class IfoodBasics{
   protected const Url = 'https://merchant-api.ifood.com.br/';
@@ -7,7 +7,7 @@ abstract class IfoodBasics{
   protected string|null $CurlCert;
   protected string $Log;
   public IfoodErros $Erro;
-  public string $ErroStr;
+  public string|null $ErroStr = null;
 
   protected function CurlRun(
     CurlHandle $Curl
