@@ -1,5 +1,5 @@
 <?php
-//2022.07.10.05
+//2022.07.10.06
 
 abstract class IfoodBasics{
   protected const Url = 'https://merchant-api.ifood.com.br/';
@@ -50,9 +50,8 @@ abstract class IfoodBasics{
     $header = [
       'Accept: application/json',
     ];
-    if($Autenticacao):
+    if($Autenticacao === false):
       $header[] = 'Content-Type: application/json';
-    else:
       $header[] = 'Authorization: Bearer ' . $this->Token;
     endif;
     $this->Log('URL: ' . $Url);
