@@ -1,5 +1,5 @@
 <?php
-//2022.07.09.01
+//2022.07.10.00
 
 enum IfoodPedidoDetalheTipo:string{
   case Entrega = 'DELIVERY';
@@ -120,7 +120,7 @@ class IfoodPedidoDetalheEntrega{
   public readonly IfoodPedidoDetalheEntregaModos $Modo;
   public readonly IfoodPedidoDetalheEntregaPor $Por;
   public readonly int $Hora;
-  public readonly string $Obs;
+  public readonly string|null $Obs;
   public readonly string $Completo;
   public readonly string $Rua;
   public readonly string $Num;
@@ -138,7 +138,7 @@ class IfoodPedidoDetalheEntrega{
     $this->Modo = IfoodPedidoDetalheEntregaModos::from($Data['mode']);
     $this->Por = IfoodPedidoDetalheEntregaPor::from($Data['deliveredBy']);
     $this->Hora = strtotime($Data['deliveryDateTime']);
-    $this->Obs = $Data['observations'];
+    $this->Obs = $Data['observations'] ?? null;
     $this->Rua = $Data['deliveryAddress']['streetName'];
     $this->Num = $Data['deliveryAddress']['streetNumber'];
     $this->Completo = $Data['deliveryAddress']['formattedAddress'];
