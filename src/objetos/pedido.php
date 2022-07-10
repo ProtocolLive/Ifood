@@ -1,5 +1,5 @@
 <?php
-//2022.07.10.04
+//2022.07.10.05
 
 enum IfoodPedidoDetalheTipo:string{
   case Entrega = 'DELIVERY';
@@ -79,6 +79,7 @@ class IfoodPedidoDetalhe{
   public readonly IfoodPedidoDetalheEntrega $Entrega;
   public readonly IfoodPedidoDetalheCliente $Cliente;
   public readonly IfoodPedidoDetalheTotal $Total;
+  public readonly IfoodPedidoDetalhePagamento $Pagamento;
 
   public function __construct(array $Data){
     $this->Id = $Data['id'];
@@ -93,6 +94,7 @@ class IfoodPedidoDetalhe{
     $this->Entrega = new IfoodPedidoDetalheEntrega($Data['delivery']);
     $this->Cliente = new IfoodPedidoDetalheCliente($Data['customer']);
     $this->Total = new IfoodPedidoDetalheTotal($Data['total']);
+    $this->Pagamento = new IfoodPedidoDetalhePagamento($Data['payments']);
   }
 }
 
