@@ -1,5 +1,5 @@
 <?php
-//2022.07.09.05
+//2022.07.10.00
 
 require(__DIR__ . '/requires.php');
 
@@ -125,6 +125,62 @@ class Ifood extends IfoodBasics{
     string $Id
   ){
     $url = self::Url . IfoodModulos::Pedidos->value . self::Versao . "orders/$Id/startPreparation";
+    $curl = $this->CurlFactory($url);
+    curl_setopt($curl, CURLOPT_POST, true);
+    $return = $this->CurlRun($curl);
+    return $return;
+  }
+
+  public function PedidoPronto(
+    string $Id
+  ){
+    $url = self::Url . IfoodModulos::Pedidos->value . self::Versao . "orders/$Id/readyToPickup";
+    $curl = $this->CurlFactory($url);
+    curl_setopt($curl, CURLOPT_POST, true);
+    $return = $this->CurlRun($curl);
+    return $return;
+  }
+
+  public function PedidoEnviado(
+    string $Id
+  ){
+    $url = self::Url . IfoodModulos::Pedidos->value . self::Versao . "orders/$Id/dispatch";
+    $curl = $this->CurlFactory($url);
+    curl_setopt($curl, CURLOPT_POST, true);
+    $return = $this->CurlRun($curl);
+    return $return;
+  }
+
+  public function PedidoCancelar(
+    string $Id,
+    IfoodPedidoCancelamento $Codigo,
+    string $Motivo
+  ){
+    $url = self::Url . IfoodModulos::Pedidos->value . self::Versao . "orders/$Id/requestCancellation";
+    $curl = $this->CurlFactory($url);
+    curl_setopt($curl, CURLOPT_POST, true);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, [
+      'reason' => $Motivo,
+      'cancellationCode' => $Codigo->value
+    ]);
+    $return = $this->CurlRun($curl);
+    return $return;
+  }
+
+  public function PedidoCancelamentoAceitar(
+    string $Id
+  ){
+    $url = self::Url . IfoodModulos::Pedidos->value . self::Versao . "orders/$Id/acceptCancellation";
+    $curl = $this->CurlFactory($url);
+    curl_setopt($curl, CURLOPT_POST, true);
+    $return = $this->CurlRun($curl);
+    return $return;
+  }
+
+  public function PedidoCancelamentoNegar(
+    string $Id
+  ){
+    $url = self::Url . IfoodModulos::Pedidos->value . self::Versao . "orders/$Id/denyCancellation";
     $curl = $this->CurlFactory($url);
     curl_setopt($curl, CURLOPT_POST, true);
     $return = $this->CurlRun($curl);
