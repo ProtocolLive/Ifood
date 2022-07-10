@@ -1,5 +1,5 @@
 <?php
-//2022.07.10.02
+//2022.07.10.03
 
 enum IfoodPedidoDetalheTipo:string{
   case Entrega = 'DELIVERY';
@@ -237,10 +237,10 @@ class IfoodPedidoDetalhePagamento{
  * @link https://developer.ifood.com.br/pt-BR/docs/guides/order/details#payments
  */
 class IfoodPedidoDetalhePagamentoPag{
-  public readonly int $Valor;
-  public readonly string $Moeda;
   public readonly IfoodPedidoDetalhePagamentoMetodos $Metodo;
   public readonly IfoodPedidoDetalhePagamentoTipos $Tipo;
+  public readonly string $Moeda;
+  public readonly float $Valor;
   public readonly string|null $Cartao;
   public readonly string|null $Carteira;
   public readonly bool $Pago;
