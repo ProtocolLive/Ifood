@@ -1,5 +1,5 @@
 <?php
-//2022.07.09.05
+//2022.07.09.06
 
 abstract class IfoodBasics{
   protected const Url = 'https://merchant-api.ifood.com.br/';
@@ -32,6 +32,11 @@ abstract class IfoodBasics{
     endif;
     if($code === 401):
       $this->Erro = IfoodErros::TokenSem;
+    endif;
+    if($code === 500):
+      $temp = json_decode($return, true);
+      $this->Erro = IfoodErros::Servidor;
+      $this->ErroStr = $temp['error']['message'];
     endif;
     return null;
   }
