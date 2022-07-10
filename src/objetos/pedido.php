@@ -1,5 +1,5 @@
 <?php
-//2022.07.09.00
+//2022.07.09.01
 
 enum IfoodPedidoDetalheTipo:string{
   case Entrega = 'DELIVERY';
@@ -33,6 +33,24 @@ enum IfoodPedidoDetalhePagamentoMetodos:string{
 enum IfoodPedidoDetalhePagamentoTipos:string{
   case Online = 'ONLINE';
   case Offline = 'OFFLINE';
+}
+
+/**
+ * @link https://developer.ifood.com.br/pt-BR/docs/guides/order/workflow#cancelado-pela-loja
+ */
+enum IfoodPedidoCancelamento:int{
+  case AreaRisco = 511;
+  case AbriraTarde = 512;
+  case Duplicidade = 502;
+  case CardapioDesatualizado = 505;
+  case DificuldadesInternas = 509;
+  case FechouCedo = 513;
+  case HorarioFora = 508;
+  case ItemIndisponível = 503;
+  case Longe = 506;
+  case ProblemaSistema = 501;
+  case SemMotoboy = 504;
+  case Trote = 507;
 }
 
 /**
