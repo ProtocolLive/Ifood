@@ -1,5 +1,5 @@
 <?php
-//2022.07.10.03
+//2022.07.10.04
 
 enum IfoodPedidoDetalheTipo:string{
   case Entrega = 'DELIVERY';
@@ -212,13 +212,13 @@ class IfoodPedidoDetalheTotal{
  * @link https://developer.ifood.com.br/pt-BR/docs/guides/order/details#payments
  */
 class IfoodPedidoDetalhePagamento{
-  public readonly int $Pago;
-  public readonly int $Pendente;
+  public readonly float $Pago;
+  public readonly float $Pendente;
   public array $Pag;
 
   public function __construct(array $Data){
-    $this->Valor = $Data['prepaid'] * 100;
-    $this->Valor = $Data['pending'] * 100;
+    $this->Pago = $Data['prepaid'];
+    $this->Pendente = $Data['pending'];
     foreach($Data['methods'] as $metodo):
       $this->Pag[] = new IfoodPedidoDetalhePagamentoPag($metodo);
     endforeach;
