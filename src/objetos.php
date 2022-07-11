@@ -1,14 +1,5 @@
 <?php
-
-class IfoodLoja{
-  public function __construct(
-    public readonly string $Id,
-    public readonly string $Nome,
-    public readonly string $Nome2
-  ){}
-}
-
-//2022.07.11.00
+//2022.07.11.01
 
 class IfoodPedidoResumo{
   public readonly string $Id;
