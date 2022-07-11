@@ -1,5 +1,5 @@
 <?php
-//2022.07.10.00
+//2022.07.11.00
 
 enum IfoodModulos:string{
   case Autenticacao = 'authentication';
@@ -45,7 +45,7 @@ enum IfoodPedidosGrupos:string{
 /**
  * @link https://developer.ifood.com.br/pt-BR/docs/guides/order/events#order_status
  */
-enum IfoodPedidosCodigoStatus:string{
+enum IfoodPedidosStatus:string{
   /**
    * Pedido foi Cancelado
    */
@@ -79,7 +79,7 @@ enum IfoodPedidosCodigoStatus:string{
 /**
  * @link https://developer.ifood.com.br/pt-BR/docs/guides/order/events#order_status
  */
-enum IfoodPedidosCodigoStatus2:string{
+enum IfoodPedidosStatus2:string{
   /**
    * Pedido foi Cancelado
    */
@@ -109,7 +109,7 @@ enum IfoodPedidosCodigoStatus2:string{
 /**
  * @link https://developer.ifood.com.br/pt-BR/docs/guides/order/events#cancellation_request
  */
-enum IfoodPedidosCodigoCancelado:string{
+enum IfoodPedidosStatusCancelado:string{
   /**
    * Solicitação de cancelamento feita pelo cliente
    */
@@ -135,7 +135,7 @@ enum IfoodPedidosCodigoCancelado:string{
 /**
  * @link https://developer.ifood.com.br/pt-BR/docs/guides/order/events#cancellation_request
  */
-enum IfoodPedidosCodigoCancelado2:string{
+enum IfoodPedidosStatusCancelado2:string{
   /**
    * Solicitação de cancelamento feita pelo cliente
    */

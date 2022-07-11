@@ -1,5 +1,4 @@
 <?php
-//2022.07.09.00
 
 class IfoodLoja{
   public function __construct(
@@ -9,23 +8,24 @@ class IfoodLoja{
   ){}
 }
 
+//2022.07.11.00
 
 class IfoodPedidoResumo{
   public readonly string $Id;
-  public readonly IfoodPedidosCodigoStatus $Codigo;
+  public readonly IfoodPedidosStatus $Status;
   public readonly string $Loja;
   public readonly string $Criacao;
   public readonly array|null $Dados;
 
   public function __construct(
     string $Id,
-    IfoodPedidosCodigoStatus $Codigo,
+    IfoodPedidosStatus $Status,
     string $Loja,
     string $Criacao,
     array $Dados = null
   ){
     $this->Id = $Id;
-    $this->Codigo = $Codigo;
+    $this->Status = $Status;
     $this->Loja = $Loja;
     $this->Criacao = strtotime($Criacao);
     $this->Dados = $Dados;
@@ -50,7 +50,7 @@ class IfoodPedidosFiltroTipo{
   private array $Filtro = [];
 
   public function Add(
-    IfoodPedidosCodigoStatus2|IfoodPedidosCodigoCancelado2 $Tipo
+    IfoodPedidosStatus2|IfoodPedidosStatusCancelado2 $Tipo
   ){
     $this->Filtro[] = $Tipo->value;
   }

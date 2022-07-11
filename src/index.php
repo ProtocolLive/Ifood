@@ -1,5 +1,5 @@
 <?php
-//2022.07.10.01
+//2022.07.11.00
 
 require(__DIR__ . '/requires.php');
 
@@ -100,7 +100,7 @@ class Ifood extends IfoodBasics{
     foreach($response as $pedido):
       $return[$pedido['orderId']] = new IfoodPedidoResumo(
         $pedido['orderId'],
-        IfoodPedidosCodigoStatus::from($pedido['fullCode']),
+        IfoodPedidosStatus::from($pedido['fullCode']),
         $pedido['merchantId'],
         $pedido['createdAt'],
         $pedido['metadata'] ?? null
