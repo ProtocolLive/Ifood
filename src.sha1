@@ -1,7 +1,7 @@
-53e20d88362ae1fc202e3e987069620dc28fdfc0  src/basics.php
+165b9a7380566c3c9e7ceee2d66501f8816b09da  src/basics.php
 ec2092098a22130e38334c88a347cabd841b0d32  src/enum.php
-5e4491a18036161b21e56961f867923c660e7b2a  src/index.php
+db0273d91719e2257a68a19cf526b9e7081d7c3c  src/index.php
 841413db8bbbbe7edcde837ef5fc78c46246184b  src/objetos/erros.php
-c0896e5ea94b991fb73d765090fb8f666fa6fbe9  src/objetos/pedido.php
+b8c4fbc561a4e4b09eb0673dba4f6b92ee1f4b08  src/objetos/pedido.php
 26fc64cd4182b7ac5a153ddeb2d8be16a6223956  src/objetos.php
 c9c8c5c50502700bc6c9b4703eba8c93eb768c3e  src/requires.php

@@ -1,5 +1,5 @@
 <?php
-//2022.07.10.05
+//2022.07.10.06
 
 enum IfoodPedidoDetalheTipo:string{
   case Entrega = 'DELIVERY';
@@ -246,7 +246,7 @@ class IfoodPedidoDetalhePagamentoPag{
   public readonly string|null $Cartao;
   public readonly string|null $Carteira;
   public readonly bool $Pago;
-  public readonly float $TrocoPara;
+  public readonly float|null $TrocoPara;
 
   public function __construct(array $Data){
     $this->Valor = $Data['value'];
@@ -256,6 +256,6 @@ class IfoodPedidoDetalhePagamentoPag{
     $this->Cartao = $Data['card']['brand'] ?? null;
     $this->Carteira = $Data['wallet']['name'] ?? null;
     $this->Pago = $Data['prepaid'];
-    $this->TrocoPara = $Data['cash']['changeFor'];
+    $this->TrocoPara = $Data['cash']['changeFor'] ?? null;
   }
 }
