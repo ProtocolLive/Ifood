@@ -1,5 +1,5 @@
 <?php
-//2022.07.10.06
+//2022.07.10.07
 
 abstract class IfoodBasics{
   protected const Url = 'https://merchant-api.ifood.com.br/';
@@ -46,6 +46,7 @@ abstract class IfoodBasics{
   protected function CurlFactory(
     string $Url,
     bool $Autenticacao = false,
+    array $Header = []
   ):CurlHandle|false{
     $header = [
       'Accept: application/json',
@@ -54,6 +55,7 @@ abstract class IfoodBasics{
       $header[] = 'Content-Type: application/json';
       $header[] = 'Authorization: Bearer ' . $this->Token;
     endif;
+    $header += $Header;
     $this->Log('URL: ' . $Url);
     $curl = curl_init($Url);
     if(is_file($this->CurlCert)):
