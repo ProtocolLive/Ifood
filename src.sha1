@@ -1,7 +1,8 @@
 165b9a7380566c3c9e7ceee2d66501f8816b09da  src/basics.php
-ec2092098a22130e38334c88a347cabd841b0d32  src/enum.php
-db0273d91719e2257a68a19cf526b9e7081d7c3c  src/index.php
+6bffd0b0f0bfdd7a302543429ccef6000b4b604f  src/enum.php
+5c3375e41e37f6ca29204ce04cb3b5062e9b6aa5  src/index.php
 841413db8bbbbe7edcde837ef5fc78c46246184b  src/objetos/erros.php
+9467f5ecb428060ec83f5a8d01149fad1c3f5b3e  src/objetos/loja.php
 b8c4fbc561a4e4b09eb0673dba4f6b92ee1f4b08  src/objetos/pedido.php
-26fc64cd4182b7ac5a153ddeb2d8be16a6223956  src/objetos.php
-c9c8c5c50502700bc6c9b4703eba8c93eb768c3e  src/requires.php
+8e0b686ddd92a6a7fd5565ed22065594d57b0670  src/objetos.php
+bf047e90749331a7ddfa97ed564b0b1694d0c2a4  src/requires.php
