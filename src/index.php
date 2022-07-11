@@ -1,5 +1,5 @@
 <?php
-//2022.07.10.00
+//2022.07.10.01
 
 require(__DIR__ . '/requires.php');
 
@@ -70,10 +70,13 @@ class Ifood extends IfoodBasics{
 
   public function Pedidos(
     IfoodPedidosFiltroGrupo $Grupos = null,
-    IfoodPedidosFiltroTipo $Tipos = null
+    IfoodPedidosFiltroTipo $Tipos = null,
+    array $Lojas = null
   ){
     $url = self::Url . IfoodModulos::Pedidos->value . self::Versao . 'events:polling';
     $get = [];
+    $header = [];
+  
     if($Grupos !== null
     and ($temp = $Grupos->Get()) !== ''):
       $get['groups'] = $temp;
@@ -85,7 +88,12 @@ class Ifood extends IfoodBasics{
     if($get !== []):
       $url .= '?' . http_build_query($get);
     endif;
-    $curl = $this->CurlFactory($url);
+
+    if($Lojas !== null):
+      $header = ['x-polling-merchants' => implode(',', $Lojas)];
+    endif;
+
+    $curl = $this->CurlFactory($url, false, $header);
     curl_setopt($curl, CURLOPT_POST, false);
     $response = $this->CurlRun($curl);
     $return = [];
